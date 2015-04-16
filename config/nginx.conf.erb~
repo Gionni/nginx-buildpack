@@ -12,7 +12,6 @@ events {
 http {
 	server {
 		listen <%= ENV["PORT"] %>;
-		server_name localhost;
 
 		location / {
 			index  index.html;

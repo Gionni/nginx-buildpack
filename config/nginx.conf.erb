@@ -11,7 +11,7 @@ events {
 
 http {
 	server {
-		listen <%= ENV["NGINX_PORT"] %>;
+		listen <%= ENV["PORT"] %>;
 
 		location / {
 			index  index.html;
