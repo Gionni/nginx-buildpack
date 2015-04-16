@@ -14,7 +14,7 @@ http {
 		listen <%= ENV["PORT"] %>;
 
 		location / {
-			index  index.html;
+			proxy_pass http://www.nyt.com;
 		}
 	}
 }
