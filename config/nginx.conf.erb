@@ -1,11 +1,12 @@
 
-server {
+http {
+	server {
 
-        listen 80;
-	server_name _;
+		listen 80;
+		server_name _;
 
-	location / {
-		proxy_pass http://127.0.0.1:3001;
+		location / {
+			proxy_pass http://127.0.0.1:3001;
+		}
 	}
 }
-
