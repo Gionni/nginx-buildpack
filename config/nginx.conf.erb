@@ -10,10 +10,10 @@ events {
 }
 
 http {
-
+	server {
 
 		location / {
 			proxy_pass http://www.repubblica.it;
 		}
-
+	}
 }
