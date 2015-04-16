@@ -10,11 +10,22 @@ events {
 }
 
 http {
+        gzip on;
+        gzip_comp_level 2;
+        gzip_min_length 512;
+
 	server {
 		listen <%= ENV["PORT"] %>;
+		keepalive_timeout 5;
+
+		# serve static files
+		location ~ ^/(images|javascript|js|css|flash|media|static)/  {
+	       		root app/public/;
+			expires 30d;
+		}
 
 		location / {
-			index  index.html;
+			proxy_pass http://www.nyt.com;
 		}
 	}
 }
