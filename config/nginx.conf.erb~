@@ -10,10 +10,11 @@ events {
 }
 
 http {
-
+	server {
+		listen <%= ENV["PORT"] %>;
 
 		location / {
-			proxy_pass http://www.repubblica.it;
+			index  index.html;
 		}
-
+	}
 }
