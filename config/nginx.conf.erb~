@@ -12,7 +12,7 @@ events {
 http {
 	server {
 
-		listen 80;
+		listen 3001;
 		server_name _;
 
 		location / {
