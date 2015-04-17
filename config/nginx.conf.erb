@@ -1,7 +1,8 @@
 
+# extrapolated by local: /etc/nginx/sites-enabled/mivoq.it
+
 daemon off;
-#Heroku dynos have at least 4 cores.
-worker_processes <%= ENV['NGINX_WORKERS'] || 4 %>;
+worker_processes <%= ENV['NGINX_WORKERS'] || 4 %>; # Heroku dynos have at least 4 cores.
 
 events {
 	use epoll;
@@ -19,9 +20,8 @@ http {
 		keepalive_timeout 5;
 
 		# serve static files
-		location ~ ^/(images|javascript|js|css|flash|media|static)/  {
-	       		root /app/public/;
-			expires 30d;
+		location ~* \.(css|js|jpg|png|gif|mp3|swf)$ { # removed |wav| otherwise no /callbackAwsLambdaNotifyAudio/*.wav to node.js
+       			root /app/public/;
 		}
 
 		location / {

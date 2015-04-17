@@ -20,7 +20,7 @@ http {
 
 		# serve static files
 		location ~ ^/(images|javascript|js|css|flash|media|static)/  {
-	       		root app/public/;
+	       		root /app/public/;
 			expires 30d;
 		}
 
