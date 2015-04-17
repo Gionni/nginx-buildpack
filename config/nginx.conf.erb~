@@ -24,7 +24,12 @@ http {
 		location ~* \.(css|js|jpg|png|gif|mp3|swf)$ {
        			root /public;
 			#proxy_pass http://www.repubblica.it;
+			try_files $uri @rewriteapp;
 		}
+
+location @rewriteapp {
+    rewrite ^(.*)$ /public/$1 last;
+}
 
 		location / {
 			proxy_pass http://www.nyt.com;
