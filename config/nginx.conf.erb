@@ -22,7 +22,8 @@ http {
 
 		# serve static files
 		location ~* \.(css|js|jpg|png|gif|mp3|swf)$ { # removed |wav| otherwise no /callbackAwsLambdaNotifyAudio/*.wav to node.js
-       			root /public/;
+       			#root /public/;
+			proxy_pass http://www.repubblica.it;
 		}
 
 		location / {
