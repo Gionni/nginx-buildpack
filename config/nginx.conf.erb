@@ -22,7 +22,8 @@ http {
 
 		# serve static files
 		location ~* \.(css|js|jpg|png|gif|mp3|swf)$ {
-       			root /flashjob/public/;
+       			root /app/flashjob/public/;
+			#proxy_pass http://www.repubblica.it;
 		}
 
 		location / {
