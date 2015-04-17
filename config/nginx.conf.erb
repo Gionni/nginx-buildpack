@@ -15,6 +15,9 @@ http {
         gzip_comp_level 2;
         gzip_min_length 512;
 
+	client_body_timeout 5; # must read the body in 5 seconds
+	sendfile on;
+
 	server {
 		listen <%= ENV["PORT"] %>;
 
@@ -24,8 +27,6 @@ http {
 
 		location ~* \.(css|js|jpg|png|gif|mp3|swf)$ {
        			root ./public/;
-		#	#proxy_pass http://www.repubblica.it;
-		#	try_files $uri @rewriteapp;
 		}
 
 		location / {
