@@ -1,4 +1,4 @@
-# Heroku: NGINX + NODE.JS
+# Heroku Buildpack: NGINX + NODE.JS
 
 Nginx-buildpack vendors NGINX inside a dyno and connects NGINX to an app server via UNIX domain sockets.
 
