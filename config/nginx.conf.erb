@@ -23,8 +23,8 @@ http {
 		# serve static files
 
 		location ~* \.(css|js|jpg|png|gif|mp3|swf)$ {
+			expires -1;
        			root ./public/;
-			expires 0;
 		}
 
 		location / {
