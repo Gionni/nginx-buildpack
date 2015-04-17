@@ -23,7 +23,7 @@ http {
 		# serve static files
 
 		location ~* (.+)\.(\d+)\.(css|js|jpg|png|gif|mp3|swf)$ {
- 			try_files $uri $1.$3;
+ 			root /public/;
 		}
 
 		#location ~* \.(css|js|jpg|png|gif|mp3|swf)$ {
