@@ -17,11 +17,12 @@ http {
 
 	server {
 		listen <%= ENV["PORT"] %>;
+
 		keepalive_timeout 5;
 
 		# serve static files
 		location ~* \.(css|js|jpg|png|gif|mp3|swf)$ { # removed |wav| otherwise no /callbackAwsLambdaNotifyAudio/*.wav to node.js
-       			root /app/public/;
+       			root public/;
 		}
 
 		location / {
