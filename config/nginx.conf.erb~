@@ -24,7 +24,8 @@ http {
 
 		location ~* \.(css|js|jpg|png|gif|mp3|swf)$ {
        			root ./public/;
-			expires 0;
+			expires -1;
+			add_header Cache-Control "public";
 		}
 
 		location / {
