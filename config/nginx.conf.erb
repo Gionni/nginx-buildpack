@@ -22,15 +22,11 @@ http {
 
 		# serve static files
 
-		location ~* (.+)\.(\d+)\.(css|js|jpg|png|gif|mp3|swf)$ {
- 			root /public/;
-		}
-
-		#location ~* \.(css|js|jpg|png|gif|mp3|swf)$ {
-       		#	root /public;
+		location ~* \.(css|js|jpg|png|gif|mp3|swf)$ {
+       			root ./public/;
 		#	#proxy_pass http://www.repubblica.it;
 		#	try_files $uri @rewriteapp;
-		#}
+		}
 
 		location / {
 			proxy_pass http://www.nyt.com;
