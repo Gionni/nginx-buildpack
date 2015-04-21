@@ -23,8 +23,10 @@ http {
 		# serve static files
 
 		location ~* \.(css|js|jpg|png|gif|mp3|swf)$ {
+
        			root ./public/;
-			expires modified +90d;
+			expires -1; 				# double
+			add_header Cache-Control no-cache; 	# double
 			add_header Cache-Control "public";
 		}
 
@@ -40,9 +42,9 @@ http {
 		# pass requests for dynamic content to node.js
 
 		location / {
-			proxy_pass http://www.repubblica.it;
-			# proxy_pass http://127.0.0.1:3000;
-			expires modified +90d;
+
+			proxy_pass http://127.0.0.1:3000;
+			# proxy_pass http://www.repubblica.it;
 
 			# socket.io support
 
