@@ -28,8 +28,25 @@ http {
 			add_header Cache-Control "public";
 		}
 
+		# proxy x uploading audio IE8/9
+
+		client_max_body_size 50M;
+
+		location /proxy/ {
+
+	        	proxy_pass http://s3-eu-west-1.amazonaws.com/mivoq/;
+		}
+
+		# pass requests for dynamic content to node.js
+
 		location / {
-			proxy_pass http://127.0.0.1:3000;
+			proxy_pass http://www.repubblica.it;
+			# proxy_pass http://127.0.0.1:3000;
+
+			# socket.io support
+
+			proxy_set_header Upgrade $http_upgrade;
 		}
 	}
 }
+

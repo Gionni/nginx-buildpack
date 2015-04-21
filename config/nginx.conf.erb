@@ -24,13 +24,25 @@ http {
 
 		location ~* \.(css|js|jpg|png|gif|mp3|swf)$ {
        			root ./public/;
-			expires -1;
+			expires modified +90d;
 			add_header Cache-Control "public";
 		}
+
+		# proxy x uploading audio IE8/9
+
+		client_max_body_size 50M;
+
+		location /proxy/ {
+
+	        	proxy_pass http://s3-eu-west-1.amazonaws.com/mivoq/;
+		}
+
+		# pass requests for dynamic content to node.js
 
 		location / {
 			proxy_pass http://www.repubblica.it;
 			# proxy_pass http://127.0.0.1:3000;
+			expires modified +90d;
 
 			# socket.io support
 
@@ -38,3 +50,4 @@ http {
 		}
 	}
 }
+
