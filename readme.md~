@@ -55,7 +55,7 @@ $ git add .
 $ git commit -m 'Add multi-buildpack + Update procfile for NGINX buildpack'  
 $ git push heroku master or $ git push  
 
-P.S. Getting back: heroku config:unset BUILDPACK_URL, remove .buildpacks, remove Procfile, remove Heroku PORT env  
+P.S. Getting back: heroku config:unset BUILDPACK_URL, remove .buildpacks, remove Procfile, remove Heroku PORT  
 
 ## License
 Copyright (c) 2013 Ryan R. Smith
