@@ -40,20 +40,20 @@ $ git add .
 $ git commit -m "init"  
 $ heroku create (git remote -v)	  
 $ heroku apps:rename newAppName  
-$ git push heroku master (source: https://git.heroku.com/flashjob.git) or $ git push  
+$ git push heroku master (source: https://git.heroku.com/newAppName.git) or $ git push  
 $ heroku open  
 $ heroku logs --tail | grep -ve "method=HEAD"  
 
 **Nginx & Node.js**
 
-$ heroku config:set BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git
-$ echo 'https://github.com/heroku/heroku-buildpack-nodejs.git' >> .buildpacks
-$ echo 'https://github.com/Gionni/nginx-buildpack.git' >> .buildpacks
-Remember, you gotta work nginx.conf.erb out, first...
-Update Procfile: web: bin/start-nginx ./node_modules/.bin/forever app.js
-$ git add .
-$ git commit -m 'Add multi-buildpack + Update procfile for NGINX buildpack'
-$ git push heroku master or $ git push
+$ heroku config:set BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git  
+$ echo 'https://github.com/heroku/heroku-buildpack-nodejs.git' >> .buildpacks  
+$ echo 'https://github.com/Gionni/nginx-buildpack.git' >> .buildpacks  
+Remember, you gotta work nginx.conf.erb out, first...  
+Update Procfile: web: bin/start-nginx ./node_modules/.bin/forever app.js  
+$ git add .  
+$ git commit -m 'Add multi-buildpack + Update procfile for NGINX buildpack'  
+$ git push heroku master or $ git push  
 
 ## License
 Copyright (c) 2013 Ryan R. Smith
