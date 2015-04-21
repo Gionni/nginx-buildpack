@@ -40,7 +40,7 @@ $ git add .
 $ git commit -m "init"  
 $ heroku create (git remote -v)	  
 $ heroku apps:rename newAppName  
-$ git push heroku master (source: https://git.heroku.com/newAppName.git) or $ git push  
+$ git push heroku master (source: https://git.heroku.com/newAppName.git) or $ git push (source: bitbucket)  
 $ heroku open  
 $ heroku logs --tail | grep -ve "method=HEAD"  
 
